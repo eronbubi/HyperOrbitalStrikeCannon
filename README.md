@@ -1,6 +1,6 @@
-# HyperOrbitalStrikeCannon
+# HyperOrbitalStrikeCannon MK.1
 
-Orbital Strike Cannon für Minecraft Java 1.21.11 als `.litematic`. Eigenes Design, auf einem Vanilla-Server Schuss für Schuss gemessen.
+**MK.1**, die erste Version: Orbital Strike Cannon für Minecraft Java 1.21.11 als `.litematic`. Eigenes Design, auf einem Vanilla-Server Schuss für Schuss gemessen.
 
 - Reichweite über 8000 Blöcke, gemessen bis 8530.
 - Ziel wird an einem Zähler-Panel eingestellt (Richtung und Weite), ein Rechner sagt, welche Knöpfe zu drücken sind.
@@ -20,7 +20,7 @@ Zielrechner (braucht nur Python 3):
 python tools/aim.py ZELLE_X ZELLE_Z ZIEL_X ZIEL_Z west
 ```
 
-## Stand und bekannte Schwächen
+## Bekannte Schwächen der MK.1
 
 - **Groß:** 69 × 52 × 49 Blöcke, 4134 Blöcke pro Modul.
 - **Kleine Payload:** 6 TNT, die kurz nacheinander zünden. Kein Ring-Muster wie bei bekannten Orbital Strike Cannons.
