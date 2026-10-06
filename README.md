@@ -1,48 +1,59 @@
-# HyperOrbitalStrikeCannon MK.1
+# HyperOrbitalStrikeCannon
 
-**MK.1**, die erste Version: Orbital Strike Cannon für Minecraft Java 1.21.11 als `.litematic`. Eigenes Design, auf einem Vanilla-Server Schuss für Schuss gemessen.
+Orbital Strike Cannon für Minecraft Java 1.21.11 als `.litematic`. Eigenes Design, auf einem Vanilla-Server Schuss für Schuss gemessen. Nur Vanilla-Mechaniken: TNT-Duper, schlafende Chunks, Pulverschnee-Stopp, Netherportal-Chunkloader.
 
-- Reichweite über 8000 Blöcke, gemessen bis 8530.
-- Ziel wird an einem Zähler-Panel eingestellt (Richtung und Weite), ein Rechner sagt, welche Knöpfe zu drücken sind.
-- Einschlag bei allen Messschüssen höchstens 0.35 Blöcke neben der Rechnung.
-- Lädt sich selbst über Netherportal-Chunkloader, kein Spieler muss in der Nähe sein.
-- Nur Vanilla-Mechaniken: TNT-Duper, Lazy-Chunk-Beschleunigung, Pulverschnee-Stopp.
+Drei Versionen liegen hier nebeneinander:
 
-## Benutzen
+| | MK.1 | MK.2 | MK.3 |
+|---|---|---|---|
+| Payload | 6 TNT | 16 TNT | **65 TNT** |
+| Zündung | nacheinander | nacheinander, über 3 s | **alle im selben Tick** |
+| Einschlag | ein Punkt | Ring, zeitlich verschmiert | **geschlossener Ring** |
+| Größe | 69 × 52 × 49 | 65 × 15 × 43 | 67 × 22 × 54 |
+| Blöcke je Modul | 4134 | 3066 | 3189 |
+| Abschuss | Timer-Zähler | automatisch (Sculk-Sensor) | automatisch (Sculk-Sensor) |
+| Getestet | 4 Richtungen, bis 8530 Blöcke | 4 Richtungen, bis 8000 Blöcke | **nur Westen, bis 800 Blöcke** |
+| Anleitung | [ANLEITUNG.md](ANLEITUNG.md) | [ANLEITUNG_MK2.md](ANLEITUNG_MK2.md) | [ANLEITUNG_MK3.md](ANLEITUNG_MK3.md) |
+| Dateien in `out/` | `osc_*` | `osc2_*` | `osc3_*` |
 
-Pro Schussrichtung zwei Dateien aus `out/`: eine für die Overworld, eine für den Nether. Wer nur nach Westen schießen will, braucht nur `osc_west_overworld.litematic` und `osc_west_nether.litematic`.
+## MK.3
 
-Alles Weitere steht in der [Anleitung](ANLEITUNG.md): Platzieren, Bestücken, Zielen, Feuern, Grenzen, Messwerte.
+- 65 TNT werden in einem schlafenden Chunk auf einen Punkt gestapelt. Beim Wecken öffnen sie sich zu einem Kreis und haben einen gemeinsamen Zünder; eine Sprungladung wirft den Kreis in die Flugzelle. Am Ziel kommt ein Ring an, der gleichzeitig zündet.
+- Der Zielrechner benutzt nur die Explosionsformel des Spiels. 11 echte Schüsse lagen höchstens 0,3 Blöcke daneben.
+- Der Ring ist eine Ellipse und wächst mit der Distanz: 500 Blöcke → 1,5–4, 2000 → 6–16, 8000 → 22–62 (gerechnet). Kleiner geht, kostet Ladezeit.
 
-Zielrechner (braucht nur Python 3):
+**Zielrechner:** [`app/index.html`](app/index.html) im Browser öffnen, läuft ohne Internet. Kanone einmal eintragen, dann nur noch Ziel X und Z. Er zeigt, welche Knöpfe zu drücken sind. Auf der Kommandozeile: `python tools/aim3.py ZELLE_X ZELLE_Z ZIEL_X ZIEL_Z west`.
 
-```bash
-python tools/aim.py ZELLE_X ZELLE_Z ZIEL_X ZIEL_Z west
-```
+### Funk-Variante (Nether-Post)
 
-## Bekannte Schwächen der MK.1
+Ein Bedienpult an anderer Stelle stellt die Zähler und startet den Schuss, ohne Kabel in der Overworld: jeder Knopf schickt ein eigenes Item durch ein Netherportal, an der Kanone drückt ein Item-Filter den passenden Zählerknopf. Dateien `out/osc3funk_*`, nur für die West-Kanone, Details am Ende der [MK.3-Anleitung](ANLEITUNG_MK3.md).
 
-- **Groß:** 69 × 52 × 49 Blöcke, 4134 Blöcke pro Modul.
-- **Kleine Payload:** 6 TNT, die kurz nacheinander zünden. Kein Ring-Muster wie bei bekannten Orbital Strike Cannons.
-- **Langsam:** 8000 Blöcke geradeaus dauern etwa 54 Minuten Ladezeit.
-- **Weit und schräg nach Norden geht nicht:** bei 8000 Blöcken nur 4° Abweichung nach Norden möglich. Details in der Anleitung.
+Per Skript hat das mit dem Pult 340 Blöcke entfernt funktioniert, bis zum Schuss. **Der einzige Versuch von Hand ist gescheitert**, Ursache nicht sicher geklärt. Als Experiment zu verstehen.
+
+## Bekannte Schwächen
+
+- **MK.3 ist wenig getestet:** nur Schussrichtung Westen, nur bis 800 Blöcke. Norden, Osten und Süden sind exportiert, aber nie geschossen.
+- Ein Spieler in der Nähe der ladenden Kanone weckt die Chunks; die Payload explodiert dann in der Kammer.
+- Weit und schräg nach Norden geht bei keiner Version: das Spiel verliert die Payload. Die Rechner verweigern solche Ziele.
 - Ein Modul deckt ± 44° ab; für alle Richtungen braucht es vier Module.
 - Nicht für Paper, Spigot, Purpur oder Folia.
 - Das Einfügen mit Litematica in einem echten Client ist nicht getestet; die Tests liefen mit denselben Blöcken per Befehl auf einem Vanilla-Server.
 
 ## Quelltext
 
-`tools/` enthält den Generator, mit dem die Schematics erzeugt und getestet wurden:
+`tools/` enthält die Generatoren, mit denen die Schematics erzeugt und getestet wurden:
 
 | Datei | Inhalt |
 |---|---|
-| `cannon.py`, `modules.py` | das Design: Duper, Kammer, Zähler, Stationen, Verkabelung |
+| `cannon.py`, `modules.py` | MK.1: Duper, Kammer, Zähler, Stationen, Verkabelung |
+| `cannon2.py`, `modules2.py` | MK.2: Ringkammer, Master-Takt, Sculk-Auslöser |
+| `cannon3.py` | MK.3: Stapelzelle, Sprungladung, drei Stationen |
+| `post.py` | Nether-Post: Item-Filter, Empfänger, Nether-Leitung, Pult |
+| `aim.py`, `aim2.py`, `aim3.py` | Zielrechner je Version |
+| `export.py`, `export2.py`, `export3.py` | schreiben die Schematics und Positionslisten |
 | `build.py` | Block-Container, Drehung, Export als `.litematic` (braucht `litemapy`) |
-| `export.py` | schreibt alle acht Schematics und `positionen.txt` |
-| `aim.py` | Zielrechner, an 13 echte Schüsse angepasst |
 | `rcon.py`, `lab.py` | Steuerung eines Testservers über RCON |
 | `exp_*.py`, `probe_*.py`, `trace_*.py` | die Experimente und Messungen |
-| `prepare_server.py` | baut Kanone und Zielscheibe auf dem Testserver und stellt die Zähler |
-| `*_v1.py` | ältere Fassung mit einem Duper pro Richtung |
+| `prepare_server*.py` | bauen Kanone und Zielscheibe auf dem Testserver |
 
-Der Generator und die Experimente erwarten daneben einen Vanilla-Server 1.21.11 mit aktiviertem RCON in `server/` und den Block-Report des Servers in `gen/reports/blocks.json` (erzeugt mit `java -DbundlerMainClass=net.minecraft.data.Main -jar server.jar --reports`). Beides liegt nicht im Repository.
+Die Generatoren und Experimente erwarten daneben einen Vanilla-Server 1.21.11 mit aktiviertem RCON in `server/` und den Block-Report des Servers in `gen/reports/blocks.json` (erzeugt mit `java -DbundlerMainClass=net.minecraft.data.Main -jar server.jar --reports`). Beides liegt nicht im Repository.

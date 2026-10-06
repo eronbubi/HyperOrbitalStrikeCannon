@@ -9,13 +9,8 @@ Prints the three propellant counts, the timer, and which buttons to press on eac
 """
 import sys
 
-BITS = {"w": 14, "nw": 15, "sw": 15, "timer": 15}
-
-
-def enter_presses(value, bits, current=0):
-    """Bits whose buttons to press (once each, slowly) to get from `current` to `value`."""
-    diff = (current - value) % (1 << bits)
-    return [k for k in range(bits) if diff >> k & 1]
+from cannon import BITS
+from modules import enter_presses
 
 # Measured with real shots on the test server (60 to 7200 counts per group, up to 8500 blocks).
 # The W counter drives three dupers at once: one W count moves the payload about 1.03 blocks.

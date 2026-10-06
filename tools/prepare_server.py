@@ -1,7 +1,7 @@
 """Builds the west cannon with its portal stations on the test server, enters a target and
 builds a bullseye there, so a player only has to flip the lever.
 
-Usage: python prepare_server.py PLAYER [TARGET_X TARGET_Z]
+Usage: python prepare_server.py [TARGET_X TARGET_Z]
 """
 import sys
 
@@ -11,6 +11,7 @@ from exp_shot import set_counter, value
 from exp_turn import build
 from lab import Rcon, wait_ticks
 
+PLAYER = "ZalzQ"
 FLOOR = 52  # top of the bullseye; the payload arrives at y 84 and falls
 
 
@@ -29,8 +30,7 @@ def bullseye(r, tx, tz):
 
 
 if __name__ == "__main__":
-    player = sys.argv[1]
-    tx, tz = (int(sys.argv[2]), int(sys.argv[3])) if len(sys.argv) > 3 else (-500, 8)
+    tx, tz = (int(sys.argv[1]), int(sys.argv[2])) if len(sys.argv) > 2 else (-500, 8)
     with Rcon(timeout=900) as r:
         b, info = overworld_turned(0)
         nb, ninfo = nether_turned(0)
@@ -47,5 +47,5 @@ if __name__ == "__main__":
         shown = {name: value(r, info[f"counter_{name}"]) for name in counts}
         print("counters:", shown, "ok" if shown == counts else f"WANTED {counts}")
         print("lever", info["lever"], "| watch from", (tx, FLOOR + 11, tz + 37))
-        print(r.cmd(f"op {player}"))
+        print(r.cmd(f"op {PLAYER}"))
         print(r.cmd("tick query"))

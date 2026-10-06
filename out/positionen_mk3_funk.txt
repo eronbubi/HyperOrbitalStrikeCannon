@@ -1,0 +1,8 @@
+OSC MK.3 mit Nether-Post (nur Schussrichtung Westen)
+
+Kanone: osc3funk_west_overworld.litematic, (68, 30, 54), 4231 Bloecke. Eckpunkt x mod 16 = 9, z mod 16 = 6
+Nether: osc3funk_west_nether.litematic, (46, 30, 10), 317 Bloecke. Eckpunkt x = (Kanonen-Eck-x -1) / 8, y = Kanonen-Eck-y +0, z = (Kanonen-Eck-z -14) / 8
+Pult: osc3funk_pult.litematic, (36, 6, 16), 373 Bloecke. Eckpunkt = Kanonen-Eckpunkt +343 / +24 / +12
+Flugzelle: Kanonen-Eckpunkt +4 / +10 / +26
+Pult, relativ zu seinem Eckpunkt: Reihe LINKS z = +7, GERADE z = +10, RECHTS z = +13; erster Knopf x = +6, dann alle 2 Bloecke
+Nach dem Einfuegen pruefen: jeder Filter-Trichter ueber den Zaehlern hat 18 Items + 4 Stoecke, der Trichter darunter ist leer.

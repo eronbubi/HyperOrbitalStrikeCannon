@@ -1,0 +1,65 @@
+OSC MK.3 - Positionen relativ zum Eckpunkt der Overworld-Schematic (kleinstes x / y / z).
+
+=== Schussrichtung Westen (west) ===
+Dateien: osc3_west_overworld.litematic (67 x 22 x 54, 3189 Bloecke), osc3_west_nether.litematic (177 Bloecke)
+Overworld-Eckpunkt: x mod 16 = 9, z mod 16 = 6
+Nether-Eckpunkt:    x = (Overworld-Eck-x -1) / 8,  y = Overworld-Eck-y +0,  z = (Overworld-Eck-z -14) / 8
+Flugzelle (Pulverschnee, nichts darueber): +4 / +10 / +26
+Stapelzelle (Pulverschnee unter dem Spender): +5 / +10 / +25
+Start-Hebel: +10 / +18 / +20
+Loren auf die Sensorschienen: +10 / +18 / +26,  +9 / +18 / +23,  +9 / +18 / +29
+Dropper Dauer-Station (2 Items): +32 / +2 / +17
+Dropper Weck-Station (4 Items): +16 / +18 / +2
+Dropper Ausloese-Station (4 Items): +20 / +10 / +36
+Sculk-Sensor: +11 / +18 / +32
+Zaehler GERADE: Bit 0 bei +22 / +18 / +26, weitere Bits je 3 Bloecke Richtung +x (Osten), 14 Bits
+Zaehler LINKS : Bit 0 bei +22 / +18 / +20, weitere Bits je 3 Bloecke Richtung +x (Osten), 15 Bits
+Zaehler RECHTS: Bit 0 bei +22 / +18 / +32, weitere Bits je 3 Bloecke Richtung +x (Osten), 15 Bits
+
+=== Schussrichtung Norden (north) ===
+Dateien: osc3_north_overworld.litematic (54 x 22 x 67, 3189 Bloecke), osc3_north_nether.litematic (177 Bloecke)
+Overworld-Eckpunkt: x mod 16 = 4, z mod 16 = 9
+Nether-Eckpunkt:    x = (Overworld-Eck-x -12) / 8,  y = Overworld-Eck-y +0,  z = (Overworld-Eck-z -1) / 8
+Flugzelle (Pulverschnee, nichts darueber): +27 / +10 / +4
+Stapelzelle (Pulverschnee unter dem Spender): +28 / +10 / +5
+Start-Hebel: +33 / +18 / +10
+Loren auf die Sensorschienen: +27 / +18 / +10,  +30 / +18 / +9,  +24 / +18 / +9
+Dropper Dauer-Station (2 Items): +36 / +2 / +32
+Dropper Weck-Station (4 Items): +51 / +18 / +16
+Dropper Ausloese-Station (4 Items): +17 / +10 / +20
+Sculk-Sensor: +21 / +18 / +11
+Zaehler GERADE: Bit 0 bei +27 / +18 / +22, weitere Bits je 3 Bloecke Richtung +z (Sueden), 14 Bits
+Zaehler LINKS : Bit 0 bei +33 / +18 / +22, weitere Bits je 3 Bloecke Richtung +z (Sueden), 15 Bits
+Zaehler RECHTS: Bit 0 bei +21 / +18 / +22, weitere Bits je 3 Bloecke Richtung +z (Sueden), 15 Bits
+
+=== Schussrichtung Osten (east) ===
+Dateien: osc3_east_overworld.litematic (67 x 22 x 54, 3189 Bloecke), osc3_east_nether.litematic (177 Bloecke)
+Overworld-Eckpunkt: x mod 16 = 4, z mod 16 = 4
+Nether-Eckpunkt:    x = (Overworld-Eck-x +12) / 8,  y = Overworld-Eck-y +0,  z = (Overworld-Eck-z -12) / 8
+Flugzelle (Pulverschnee, nichts darueber): +62 / +10 / +27
+Stapelzelle (Pulverschnee unter dem Spender): +61 / +10 / +28
+Start-Hebel: +56 / +18 / +33
+Loren auf die Sensorschienen: +56 / +18 / +27,  +57 / +18 / +30,  +57 / +18 / +24
+Dropper Dauer-Station (2 Items): +34 / +2 / +36
+Dropper Weck-Station (4 Items): +50 / +18 / +51
+Dropper Ausloese-Station (4 Items): +46 / +10 / +17
+Sculk-Sensor: +55 / +18 / +21
+Zaehler GERADE: Bit 0 bei +44 / +18 / +27, weitere Bits je 3 Bloecke Richtung -x (Westen), 14 Bits
+Zaehler LINKS : Bit 0 bei +44 / +18 / +33, weitere Bits je 3 Bloecke Richtung -x (Westen), 15 Bits
+Zaehler RECHTS: Bit 0 bei +44 / +18 / +21, weitere Bits je 3 Bloecke Richtung -x (Westen), 15 Bits
+
+=== Schussrichtung Sueden (south) ===
+Dateien: osc3_south_overworld.litematic (54 x 22 x 67, 3189 Bloecke), osc3_south_nether.litematic (177 Bloecke)
+Overworld-Eckpunkt: x mod 16 = 6, z mod 16 = 4
+Nether-Eckpunkt:    x = (Overworld-Eck-x -14) / 8,  y = Overworld-Eck-y +0,  z = (Overworld-Eck-z +12) / 8
+Flugzelle (Pulverschnee, nichts darueber): +26 / +10 / +62
+Stapelzelle (Pulverschnee unter dem Spender): +25 / +10 / +61
+Start-Hebel: +20 / +18 / +56
+Loren auf die Sensorschienen: +26 / +18 / +56,  +23 / +18 / +57,  +29 / +18 / +57
+Dropper Dauer-Station (2 Items): +17 / +2 / +34
+Dropper Weck-Station (4 Items): +2 / +18 / +50
+Dropper Ausloese-Station (4 Items): +36 / +10 / +46
+Sculk-Sensor: +32 / +18 / +55
+Zaehler GERADE: Bit 0 bei +26 / +18 / +44, weitere Bits je 3 Bloecke Richtung -z (Norden), 14 Bits
+Zaehler LINKS : Bit 0 bei +20 / +18 / +44, weitere Bits je 3 Bloecke Richtung -z (Norden), 15 Bits
+Zaehler RECHTS: Bit 0 bei +32 / +18 / +44, weitere Bits je 3 Bloecke Richtung -z (Norden), 15 Bits

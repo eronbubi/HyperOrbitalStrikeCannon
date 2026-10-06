@@ -1,5 +1,6 @@
 """Test-bench helpers: datapack functions and entity readback on the local server."""
 import json
+import os
 import re
 import time
 from pathlib import Path
@@ -7,7 +8,7 @@ from pathlib import Path
 from rcon import Rcon
 
 ROOT = Path(__file__).resolve().parent.parent
-PACK = ROOT / "server" / "world" / "datapacks" / "lab"
+PACK = ROOT / os.environ.get("OSC_SERVER", "server") / "world" / "datapacks" / "lab"
 FUNCS = PACK / "data" / "lab" / "function"
 
 _NUM = re.compile(r"(-?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?)[dfsbL]?")

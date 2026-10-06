@@ -3,12 +3,14 @@
 Usage:  python rcon.py "command one" "command two" ...
 Reads port and password from ../server/server.properties.
 """
+import os
 import socket
 import struct
 import sys
 from pathlib import Path
 
-PROPS = Path(__file__).resolve().parent.parent / "server" / "server.properties"
+# OSC_SERVER=server2 selects the second test server (own ports), for work in parallel
+PROPS = Path(__file__).resolve().parent.parent / os.environ.get("OSC_SERVER", "server") / "server.properties"
 
 
 def _props():
