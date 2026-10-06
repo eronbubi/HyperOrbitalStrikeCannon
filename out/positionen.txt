@@ -1,0 +1,57 @@
+Positionen relativ zum Eckpunkt der Overworld-Schematic (kleinstes x / y / z).
+
+=== Schussrichtung Westen (west) ===
+Dateien: osc_west_overworld.litematic (69 x 52 x 49, 4134 Bloecke), osc_west_nether.litematic (118 Bloecke)
+Overworld-Eckpunkt: x mod 16 = 11, z mod 16 = 14
+Nether-Eckpunkt:    x = (Overworld-Eck-x -11) / 8,  y gleich,  z = (Overworld-Eck-z +2) / 8
+Payload-Zelle (Pulverschnee): +4 / +12 / +10
+Hebel: +14 / +37 / +14
+Loren auf die Sensorschienen: +7 / +51 / +10,  +7 / +43 / +14,  +7 / +43 / +6,  +7 / +47 / +12,  +7 / +47 / +8
+Dropper Dauer-Station (2 Items): +30 / +2 / +25
+Dropper Ausloese-Station (4 Items): +7 / +42 / +31
+Zaehler W    : Bit 0 bei +22 / +42 / +10, weitere Bits je 3 Bloecke Richtung +x (Osten), 14 Bits
+Zaehler NW   : Bit 0 bei +22 / +42 / +16, weitere Bits je 3 Bloecke Richtung +x (Osten), 15 Bits
+Zaehler SW   : Bit 0 bei +22 / +42 / +0, weitere Bits je 3 Bloecke Richtung +x (Osten), 15 Bits
+Zaehler TIMER: Bit 0 bei +57 / +42 / +46, weitere Bits je 3 Bloecke Richtung -x (Westen), 15 Bits
+
+=== Schussrichtung Norden (north) ===
+Dateien: osc_north_overworld.litematic (49 x 52 x 69, 4134 Bloecke), osc_north_nether.litematic (118 Bloecke)
+Overworld-Eckpunkt: x mod 16 = 1, z mod 16 = 11
+Nether-Eckpunkt:    x = (Overworld-Eck-x -9) / 8,  y gleich,  z = (Overworld-Eck-z -11) / 8
+Payload-Zelle (Pulverschnee): +38 / +12 / +4
+Hebel: +34 / +37 / +14
+Loren auf die Sensorschienen: +38 / +51 / +7,  +34 / +43 / +7,  +42 / +43 / +7,  +36 / +47 / +7,  +40 / +47 / +7
+Dropper Dauer-Station (2 Items): +23 / +2 / +30
+Dropper Ausloese-Station (4 Items): +17 / +42 / +7
+Zaehler W    : Bit 0 bei +38 / +42 / +22, weitere Bits je 3 Bloecke Richtung +z (Sueden), 14 Bits
+Zaehler NW   : Bit 0 bei +32 / +42 / +22, weitere Bits je 3 Bloecke Richtung +z (Sueden), 15 Bits
+Zaehler SW   : Bit 0 bei +48 / +42 / +22, weitere Bits je 3 Bloecke Richtung +z (Sueden), 15 Bits
+Zaehler TIMER: Bit 0 bei +2 / +42 / +57, weitere Bits je 3 Bloecke Richtung -z (Norden), 15 Bits
+
+=== Schussrichtung Osten (east) ===
+Dateien: osc_east_overworld.litematic (69 x 52 x 49, 4134 Bloecke), osc_east_nether.litematic (118 Bloecke)
+Overworld-Eckpunkt: x mod 16 = 0, z mod 16 = 1
+Nether-Eckpunkt:    x = (Overworld-Eck-x +16) / 8,  y gleich,  z = (Overworld-Eck-z -9) / 8
+Payload-Zelle (Pulverschnee): +64 / +12 / +38
+Hebel: +54 / +37 / +34
+Loren auf die Sensorschienen: +61 / +51 / +38,  +61 / +43 / +34,  +61 / +43 / +42,  +61 / +47 / +36,  +61 / +47 / +40
+Dropper Dauer-Station (2 Items): +38 / +2 / +23
+Dropper Ausloese-Station (4 Items): +61 / +42 / +17
+Zaehler W    : Bit 0 bei +46 / +42 / +38, weitere Bits je 3 Bloecke Richtung -x (Westen), 14 Bits
+Zaehler NW   : Bit 0 bei +46 / +42 / +32, weitere Bits je 3 Bloecke Richtung -x (Westen), 15 Bits
+Zaehler SW   : Bit 0 bei +46 / +42 / +48, weitere Bits je 3 Bloecke Richtung -x (Westen), 15 Bits
+Zaehler TIMER: Bit 0 bei +11 / +42 / +2, weitere Bits je 3 Bloecke Richtung +x (Osten), 15 Bits
+
+=== Schussrichtung Sueden (south) ===
+Dateien: osc_south_overworld.litematic (49 x 52 x 69, 4134 Bloecke), osc_south_nether.litematic (118 Bloecke)
+Overworld-Eckpunkt: x mod 16 = 14, z mod 16 = 0
+Nether-Eckpunkt:    x = (Overworld-Eck-x +2) / 8,  y gleich,  z = (Overworld-Eck-z +16) / 8
+Payload-Zelle (Pulverschnee): +10 / +12 / +64
+Hebel: +14 / +37 / +54
+Loren auf die Sensorschienen: +10 / +51 / +61,  +14 / +43 / +61,  +6 / +43 / +61,  +12 / +47 / +61,  +8 / +47 / +61
+Dropper Dauer-Station (2 Items): +25 / +2 / +38
+Dropper Ausloese-Station (4 Items): +31 / +42 / +61
+Zaehler W    : Bit 0 bei +10 / +42 / +46, weitere Bits je 3 Bloecke Richtung -z (Norden), 14 Bits
+Zaehler NW   : Bit 0 bei +16 / +42 / +46, weitere Bits je 3 Bloecke Richtung -z (Norden), 15 Bits
+Zaehler SW   : Bit 0 bei +0 / +42 / +46, weitere Bits je 3 Bloecke Richtung -z (Norden), 15 Bits
+Zaehler TIMER: Bit 0 bei +46 / +42 / +11, weitere Bits je 3 Bloecke Richtung +z (Sueden), 15 Bits
